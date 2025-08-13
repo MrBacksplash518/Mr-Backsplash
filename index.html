@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mr. Backsplash 518 — David LaFaver Jr.</title>
+<meta name="description" content="Backsplash & tile installation across Saratoga County and the Adirondacks. Call or text 518-650-4248."/>
+<meta name="theme-color" content="#000912"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#f4f3ef;                 /* page background */
+    --ink:#1f2b22;                /* main body text */
+    --muted:#5a6a60;
+    --brand-bg:#000912;           /* navy tile */
+    --brand-gold:#D0B580;         /* beige/gold text */
+    --ring:#1b2b33;
+    --card:#ffffff;
+    --radius:14px;
+    --shadow:0 2px 10px rgba(0,0,0,.06),0 12px 28px rgba(0,0,0,.06);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:var(--brand-bg);text-decoration:none}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px 20px}
+
+  /* Header (brand colors) */
+  header{background:var(--brand-bg);color:var(--brand-gold)}
+  .heroRow{display:grid;grid-template-columns:1.2fr 220px;align-items:center;gap:18px}
+  .brand h1{margin:0;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:var(--brand-gold)}
+  .brand small{color:rgba(208,181,128,.9)}
+  .portrait{
+    width:180px;height:180px;border-radius:50%;object-fit:cover;border:5px solid #fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);justify-self:end;background:#fff;
+  }
+  @media (max-width:720px){
+    .heroRow{grid-template-columns:1fr;justify-items:center;text-align:center}
+    .portrait{width:140px;height:140px;justify-self:center;margin-top:6px}
+  }
+  header a{color:var(--brand-gold)}
+
+  /* Top contact card (high contrast on light) */
+  .topcard{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid #e6e2d9;padding:20px;margin-top:14px;color:var(--ink)}
+  .cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:10px;font-weight:700}
+  .btn.call{background:var(--brand-gold);color:#000}
+  .btn.ghost{background:transparent;border:1px solid var(--brand-bg);color:var(--brand-bg)}
+  .btn:hover{filter:brightness(.95)}
+
+  /* Sections */
+  section{padding:26px 0}
+  h2{margin:.2rem 0 1rem;color:var(--brand-bg)}
+  ul{margin:0;padding-left:1.2rem}
+
+  /* Tabs (good contrast) */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+  .tab{
+    background:transparent;
+    color:var(--brand-bg);
+    border:1px solid var(--brand-bg);
+    padding:.5rem .9rem;border-radius:999px;cursor:pointer;font-weight:600
+  }
+  .tab[aria-selected="true"]{
+    background:var(--brand-bg);color:var(--brand-gold);border-color:var(--brand-bg)
+  }
+
+  /* Gallery – uniform cards on every device */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .tile{background:#fff;border:1px solid #e6e2d9;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in}
+  .tile img{
+    width:100%;
+    aspect-ratio: 4 / 5;     /* keeps consistent card height */
+    object-fit: cover;        /* crops to fill without distortion */
+    display:block;
+  }
+  .empty{padding:16px;border:1px dashed #e6e2d9;border-radius:12px;color:var(--muted);background:#fff}
+
+  /* Lightbox */
+  .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.85);display:none;align-items:center;justify-content:center;z-index:50}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:84vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.45)}
+  .lightbox button{position:absolute;top:16px;right:16px;background:#fff;border:0;border-radius:8px;padding:.55rem .7rem;font-weight:700;cursor:pointer}
+
+  /* Footer (brand colors, readable) */
+  footer{background:var(--brand-bg);color:var(--brand-gold);text-align:center;padding:26px 20px;margin-top:28px}
+  footer a{color:var(--brand-gold);text-decoration:underline}
+</style>
+</head>
+<body>
+  <header>
+    <div class="wrap heroRow">
+      <div class="brand">
+        <h1>Mr. Backsplash 518</h1>
+        <small>David LaFaver Jr. — Serving Saratoga County & the Adirondacks</small>
+      </div>
+      <!-- Use exact GitHub file name (no rename needed) -->
+      <img class="portrait"
+     src="https://raw.githubusercontent.com/NickBlanchard04/CosmicGames/main/images/david.jpg.jpg"
+     alt="Portrait of David LaFaver Jr."
+     onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/NickBlanchard04/CosmicGames/main/images/david.jpg';">
+
+    </div>
+  </header>
+
+  <div class="wrap topcard">
+    <p style="margin:0">Beautiful backsplashes, custom tile work, and a neighborly touch. Bringing your vision to life with quality craftsmanship and free estimates.</p>
+    <div class="cta" role="group" aria-label="Primary actions">
+      <a class="btn call" href="tel:+15186504248">📞 Call or Text: <span style="font-variant-numeric:tabular-nums">518-650-4248</span></a>
+      <a class="btn ghost" target="_blank" rel="noopener" href="https://www.instagram.com/mr.backsplash518?igsh=eHQ1ZWdvazhsY21v">📷 Visit Mr. Backsplash on Instagram</a>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section>
+      <h2>Services</h2>
+      <ul>
+        <li>Kitchen backsplash installation</li>
+        <li>Tile repairs &amp; regrouting</li>
+        <li>Bathroom wall &amp; floor tile</li>
+        <li>Custom tile design</li>
+      </ul>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <div id="tabs" class="tabs" role="tablist" aria-label="Portfolio categories"></div>
+      <div id="gallery" class="grid" aria-live="polite">
+        <div class="empty">Choose a category to view photos…</div>
+      </div>
+      <p style="color:var(--muted);margin-top:8px">
+        Add/replace photos by uploading them to the folders below in the repo. The page updates on reload.
+      </p>
+      <ul style="color:var(--muted)">
+        <li><code>davids portfolio 1</code></li>
+        <li><code>davids portfolio 2</code></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="yr"></span> Mr. Backsplash 518 — Saratoga County & Adirondacks • <a href="tel:+15186504248">518-650-4248</a>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button aria-label="Close">Close ✕</button>
+    <img alt="" id="lbimg"><div id="lbmeta" style="position:absolute;bottom:16px;left:16px;right:16px;color:#fff"></div>
+  </div>
+
+<script>
+  // Year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Repo + folder names (with spaces)
+  const USER = "NickBlanchard04";
+  const REPO = "CosmicGames";
+  const FOLDERS = [
+    { label: "David’s Portfolio 1", path: "davids portfolio 1" },
+    { label: "David’s Portfolio 2", path: "davids portfolio 2" }
+  ];
+  const API_BASE = `https://api.github.com/repos/${USER}/${REPO}/contents/`;
+
+  // Build tabs
+  const tabs = document.getElementById('tabs');
+  const gallery = document.getElementById('gallery');
+  FOLDERS.forEach((f,i)=>{
+    const b = document.createElement('button');
+    b.className='tab'; b.role='tab'; b.textContent=f.label;
+    b.setAttribute('aria-selected', i===0 ? 'true' : 'false');
+    b.addEventListener('click', ()=>selectFolder(i));
+    tabs.appendChild(b);
+  });
+
+  async function selectFolder(i){
+    [...tabs.children].forEach((el,idx)=>el.setAttribute('aria-selected', idx===i ? 'true' : 'false'));
+    gallery.innerHTML = '<div class="empty">Loading photos…</div>';
+    await loadFolder(FOLDERS[i].path);
+  }
+
+  async function loadFolder(path){
+    try{
+      const res = await fetch(API_BASE + encodeURIComponent(path), { headers:{ "Accept":"application/vnd.github+json" }});
+      if(!res.ok) throw new Error('GitHub API ' + res.status);
+      const files = await res.json();
+      const imgs = (Array.isArray(files)?files:[]).filter(f=>{
+        if(f.type!=='file') return false;
+        const n = f.name.toLowerCase();
+        return n.endsWith('.jpg')||n.endsWith('.jpeg')||n.endsWith('.png')||n.endsWith('.webp');
+      });
+      if(!imgs.length){ gallery.innerHTML = '<div class="empty">No images in this folder yet.</div>'; return; }
+      imgs.sort((a,b)=> a.name.localeCompare(b.name, undefined, {numeric:true}));
+      gallery.innerHTML = '';
+      imgs.forEach(file=>{
+        const fig = document.createElement('figure'); fig.className='tile';
+        const img = document.createElement('img'); img.loading='lazy'; img.src=file.download_url; img.alt=file.name;
+        fig.appendChild(img);
+        fig.addEventListener('click', ()=>openLB(file.download_url, file.name));
+        gallery.appendChild(fig);
+      });
+    }catch(err){
+      console.error(err);
+      gallery.innerHTML = '<div class="empty">Couldn’t load this folder. Confirm the repo is public and the path exists.</div>';
+    }
+  }
+
+  // Lightbox
+  const lb = document.getElementById('lightbox'), lbimg = document.getElementById('lbimg'), lbmeta = document.getElementById('lbmeta');
+  function openLB(src, cap){ lbimg.src=src; lbmeta.textContent=cap||''; lb.classList.add('open'); }
+  function closeLB(){ lb.classList.remove('open'); lbimg.src=''; lbmeta.textContent=''; }
+  lb.addEventListener('click', e=>{ if(e.target===lb) closeLB(); });
+  lb.querySelector('button').addEventListener('click', closeLB);
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeLB(); });
+
+  // Auto-load first folder
+  if(FOLDERS.length) selectFolder(0);
+</script>
+</body>
+</html>
