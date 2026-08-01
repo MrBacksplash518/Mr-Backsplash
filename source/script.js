@@ -214,7 +214,26 @@ document.querySelectorAll("#year").forEach((year) => {
   year.textContent = new Date().getFullYear();
 });
 
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+const reduceMotion = motionPreference.matches;
+const heroVideo = document.querySelector("[data-hero-video]");
+
+if (heroVideo instanceof HTMLVideoElement) {
+  const syncHeroVideo = () => {
+    if (motionPreference.matches) {
+      heroVideo.pause();
+      heroVideo.currentTime = 0;
+      return;
+    }
+
+    heroVideo.play().catch(() => {
+      // The poster remains visible if the browser blocks autoplay.
+    });
+  };
+
+  syncHeroVideo();
+  motionPreference.addEventListener("change", syncHeroVideo);
+}
 
 if (!reduceMotion) {
   const headerInner = document.querySelector(".site-header__inner");
