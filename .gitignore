@@ -1,0 +1,7 @@
+node_modules/
+dist/
+implementation-*.png
+qa/*.png
+qa-altura/*.png
+qa-iteration/*.png
+output/playwright/
