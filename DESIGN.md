@@ -1,4 +1,4 @@
-# Mr. Backsplash 518 Design System
+# Mr. Backsplash Design System
 
 ## Purpose
 

@@ -1,4 +1,4 @@
-# Design QA — Mr. Backsplash 518
+# Design QA — Mr. Backsplash
 
 ## Scope
 
