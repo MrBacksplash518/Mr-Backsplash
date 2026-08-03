@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tile Installer in Saratoga Springs, Clifton Park &amp; Lake George | Mr. Backsplash</title>
+    <title>Tile Installer in Saratoga Springs, NY | Mr. Backsplash</title>
     <meta
       name="description"
       content="Owner-installed kitchen backsplashes, bathroom and shower tile, tile floors, repairs, regrouting, and laminate flooring across Saratoga County and the Adirondacks."
     />
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
     <meta name="theme-color" content="#141414" />
     <link rel="canonical" href="https://mrbacksplash.info/" />
     <link rel="icon" href="/assets/owner-david-portrait-CgJvPm3C.jpg" />
@@ -17,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
+    <meta property="og:site_name" content="Mr. Backsplash" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Mr. Backsplash | Owner-Installed Tile Work" />
     <meta
@@ -28,35 +30,61 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "HomeAndConstructionBusiness",
-        "name": "Mr. Backsplash",
-        "url": "https://mrbacksplash.info/",
-        "telephone": "+1-518-650-4248",
-        "description": "Owner-operated tile installation serving Saratoga County and the Adirondacks.",
-        "founder": {
-          "@type": "Person",
-          "name": "David LaFaver Jr."
-        },
-        "areaServed": [
-          "Saratoga Springs, NY",
-          "Clifton Park, NY",
-          "Lake George, NY",
-          "Saratoga County, NY",
-          "The Adirondacks, NY"
-        ],
-        "sameAs": [
-          "https://www.instagram.com/mr.backsplash518/"
-        ],
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Tile and flooring services",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Kitchen backsplash installation" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bathroom and shower tile" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Tile flooring and repairs" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Laminate flooring installation" } }
-          ]
-        }
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://mrbacksplash.info/#website",
+            "url": "https://mrbacksplash.info/",
+            "name": "Mr. Backsplash",
+            "alternateName": "Mr Backsplash",
+            "inLanguage": "en-US",
+            "publisher": { "@id": "https://mrbacksplash.info/#organization" }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://mrbacksplash.info/#organization",
+            "name": "Mr. Backsplash",
+            "url": "https://mrbacksplash.info/",
+            "telephone": "+1-518-650-4248",
+            "description": "Owner-operated tile and flooring installation serving Saratoga Springs, Clifton Park, Lake George, and nearby Upstate New York communities.",
+            "founder": { "@id": "https://mrbacksplash.info/#david-lafaver-jr" },
+            "areaServed": [
+              { "@type": "City", "name": "Saratoga Springs, New York" },
+              { "@type": "Place", "name": "Clifton Park, New York" },
+              { "@type": "Place", "name": "Lake George, New York" },
+              { "@type": "AdministrativeArea", "name": "Saratoga County, New York" },
+              { "@type": "Place", "name": "The Adirondacks, New York" }
+            ],
+            "sameAs": [
+              "https://www.instagram.com/mr.backsplash518/"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+1-518-650-4248",
+              "contactType": "customer service",
+              "areaServed": "US-NY",
+              "availableLanguage": "English"
+            },
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Tile and flooring services",
+              "itemListElement": [
+                { "@type": "Offer", "url": "https://mrbacksplash.info/services/#kitchen-backsplashes", "itemOffered": { "@type": "Service", "name": "Kitchen backsplash installation" } },
+                { "@type": "Offer", "url": "https://mrbacksplash.info/services/#bathroom-shower-tile", "itemOffered": { "@type": "Service", "name": "Bathroom and shower tile installation" } },
+                { "@type": "Offer", "url": "https://mrbacksplash.info/services/#tile-floors-repairs", "itemOffered": { "@type": "Service", "name": "Tile floor installation and repair" } },
+                { "@type": "Offer", "url": "https://mrbacksplash.info/services/#laminate-flooring", "itemOffered": { "@type": "Service", "name": "Laminate flooring installation" } }
+              ]
+            }
+          },
+          {
+            "@type": "Person",
+            "@id": "https://mrbacksplash.info/#david-lafaver-jr",
+            "name": "David LaFaver Jr.",
+            "jobTitle": "Owner and Tile Installer",
+            "url": "https://mrbacksplash.info/about/",
+            "worksFor": { "@id": "https://mrbacksplash.info/#organization" }
+          }
+        ]
       }
     </script>
     <script type="module" crossorigin src="/assets/script-DCY542C3.js"></script>
@@ -124,7 +152,7 @@
         <div class="hero__wash" aria-hidden="true"></div>
 
         <div class="hero__content shell">
-          <h1 id="hero-title">Tile work Saratoga homeowners trust.</h1>
+          <h1 id="hero-title">Tile installation for Saratoga Springs, Clifton Park &amp; Lake George.</h1>
           <p>
             Backsplashes, showers, floors and repairs —<br />
             personally installed by David.
