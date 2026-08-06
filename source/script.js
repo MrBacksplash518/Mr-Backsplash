@@ -131,22 +131,36 @@ if (lightbox instanceof HTMLDialogElement) {
   const lightboxImage = lightbox.querySelector(".lightbox__image");
   const lightboxCaption = lightbox.querySelector("#lightbox-caption");
   const lightboxClose = lightbox.querySelector(".lightbox__close");
+  const lightboxProjectLink = lightbox.querySelector(".lightbox__project-link");
 
   document.querySelectorAll(".project-gallery-item").forEach((item) => {
     item.addEventListener("click", () => {
-      const image = item.querySelector("img");
+      const targetImage = item.dataset.imageTarget
+        ? document.querySelector(item.dataset.imageTarget)
+        : null;
+      const image =
+        item.querySelector("img") ||
+        item.closest(".work-item, .project-hero__figure")?.querySelector("img") ||
+        targetImage;
       if (!image || !lightboxImage || !lightboxCaption) return;
 
       activeGalleryItem = item;
-      const largestResponsiveSource = image.srcset
+      const largestResponsiveSource = image?.srcset
         ?.split(",")
         .map((candidate) => candidate.trim().split(/\s+/)[0])
         .filter(Boolean)
         .at(-1);
 
       lightboxImage.src = largestResponsiveSource || image.currentSrc || image.src;
-      lightboxImage.alt = image.alt;
-      lightboxCaption.textContent = item.dataset.caption || image.alt;
+      lightboxImage.alt = item.dataset.imageAlt || image?.alt || "Project photo";
+      lightboxCaption.textContent = item.dataset.caption || image?.alt || "Project photo";
+
+      if (lightboxProjectLink) {
+        const projectHref = item.dataset.projectHref;
+        lightboxProjectLink.hidden = !projectHref;
+        if (projectHref) lightboxProjectLink.href = projectHref;
+      }
+
       lightbox.showModal();
     });
   });
@@ -164,6 +178,10 @@ if (lightbox instanceof HTMLDialogElement) {
   });
 
   lightbox.addEventListener("close", () => {
+    if (lightboxProjectLink) {
+      lightboxProjectLink.hidden = true;
+      lightboxProjectLink.href = "/work/";
+    }
     activeGalleryItem?.focus();
     activeGalleryItem = null;
   });
@@ -179,7 +197,9 @@ if (estimateForm && formStatus && preparedTextLink) {
   const serviceValues = {
     "kitchen-backsplash": "Kitchen backsplash",
     "bathroom-shower-tile": "Bathroom or shower tile",
-    "tile-floor-repair": "Tile floor or repair",
+    "tile-floor-installation": "Tile floor installation",
+    "tile-repair": "Tile repair",
+    regrouting: "Regrouting",
     "laminate-flooring": "Laminate flooring",
   };
 
@@ -257,13 +277,13 @@ if (!reduceMotion) {
       .to(".hero__media", { scale: 1, duration: 1.5, ease: "power2.out" }, 0);
   }
 
-  const workHero = document.querySelector(".work-hero__content, .page-hero__content");
+  const workHero = document.querySelector(".work-hero__content, .page-hero__content, .project-hero__copy");
   if (workHero) {
     gsap
       .timeline({ defaults: { ease: "power3.out" } })
-      .from(".work-hero .eyebrow, .page-hero .eyebrow", { opacity: 0, y: 14, duration: 0.55 })
-      .from(".work-hero h1, .page-hero h1", { opacity: 0, y: 32, duration: 0.9 }, "-=0.25")
-      .from(".work-hero__content > p:last-child, .page-hero__content > p:last-child", { opacity: 0, y: 18, duration: 0.65 }, "-=0.48");
+      .from(".work-hero .eyebrow, .page-hero .eyebrow, .project-kicker", { opacity: 0, y: 14, duration: 0.55 })
+      .from(".work-hero h1, .page-hero h1, .project-hero h1", { opacity: 0, y: 32, duration: 0.9 }, "-=0.25")
+      .from(".work-hero__content > p:last-child, .page-hero__content > p:last-child, .project-hero__copy > p:not(.project-kicker)", { opacity: 0, y: 18, duration: 0.65 }, "-=0.48");
   }
 
   const wordReveal = document.querySelector(".word-reveal");

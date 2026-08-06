@@ -36,6 +36,9 @@ jobs:
       - name: Build production site
         run: npm run build
 
+      - name: Verify production site
+        run: npm run projects:check && npm run areas:check && npm run site:check
+
       - name: Upload finished site
         uses: actions/upload-pages-artifact@v5
         with:

@@ -9,6 +9,8 @@ const publishedTargets = [
   "about",
   "contact",
   "services",
+  "service-areas",
+  "advice",
   "work",
   "assets",
   "CNAME",

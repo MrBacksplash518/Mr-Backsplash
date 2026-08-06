@@ -5,7 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "projects:generate": "node scripts/generate_project_pages.mjs",
+    "build": "npm run projects:generate && vite build && node scripts/copy_project_share_assets.mjs",
+    "projects:check": "node scripts/verify_project_pages.mjs",
+    "projects:check:published": "node scripts/verify_project_pages.mjs --published",
+    "areas:check": "node scripts/verify_service_area_pages.mjs",
+    "areas:check:published": "node scripts/verify_service_area_pages.mjs --published",
+    "site:check": "node scripts/verify_site.mjs",
+    "site:check:published": "node scripts/verify_site.mjs --published",
     "pages:prepare": "npm run build && node scripts/publish_to_root.mjs"
   },
   "dependencies": {

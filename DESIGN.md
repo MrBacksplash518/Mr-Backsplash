@@ -2,7 +2,7 @@
 
 ## Purpose
 
-Build a local-service website for homeowners in Saratoga Springs, Clifton Park, Lake George, and nearby Upstate New York communities that communicates meticulous, owner-installed tile work and leads visitors to call, text, or request an estimate.
+Build a local-service website for homeowners in Saratoga Springs, Clifton Park, Lake George, and nearby 518-area communities that communicates meticulous, owner-installed tile work and leads visitors to call, text, or request an estimate.
 
 ## Audience and positioning
 
@@ -67,6 +67,7 @@ The measured black, gray, gold, Fraunces, and Manrope system is intentionally ad
 - The homepage recent-work module uses three equal 4:3 image cards over a light-gray section. Each entire card links to `/work/`.
 - The `/about/` page follows the measured reference structure: a dark editorial hero, two-column owner story, light process grid, dark differentiator grid, truthful owner-difference cards, and shared footer CTA. It uses singular language because David is the owner and sole installer.
 - The `/services/` page uses a dark editorial hero and four generous alternating text-and-image rows. On mobile, every service keeps the text before the image. Every service is illustrated with David’s real work.
+- The `/service-areas/` hub and its Saratoga Springs, Clifton Park, and Lake George pages describe service coverage rather than local offices or project history. Saratoga Springs emphasizes finish decisions, Clifton Park emphasizes occupied-home logistics, and Lake George emphasizes property-use and access planning. Location pages remain image-free so portfolio work is never assigned to a town.
 - The `/work/` page uses a dark editorial hero, a featured-project case study, a three-column project gallery, and an accessible image lightbox that opens the larger optimized source. It never invents project locations, reviews, materials, or credentials.
 - The `/contact/` page uses the measured two-tone hero, a direct-contact column, and a light-gray estimate form that prepares a text message without sending data automatically.
 - Navigation, floating call control, phone, text, gallery lightbox, estimate form, and mobile menu must be functional.
