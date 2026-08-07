@@ -676,7 +676,9 @@ h3 {
   overflow: hidden;
 }
 
+.work-item > img,
 .work-item__link > img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -687,6 +689,8 @@ h3 {
   object-position: center 72%;
 }
 
+.work-item:hover > img,
+.work-item:focus-within > img,
 .work-item:hover .work-item__link > img,
 .work-item:focus-within .work-item__link > img {
   transform: scale(1.055);
