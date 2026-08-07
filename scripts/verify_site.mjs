@@ -239,6 +239,14 @@ for (const entry of readdirSync(resolve(buildRoot, "assets"))) {
   if (/hero-.*\.mp4$/.test(entry) && size > 3_000_000) fail(`${entry}: hero video exceeds 3 MB (${size} bytes)`);
 }
 
+const javascriptBundle = readdirSync(resolve(buildRoot, "assets"))
+  .filter((entry) => /^script-.*\.js$/.test(entry))
+  .map((entry) => read(resolve(buildRoot, "assets", entry)))
+  .join("\n");
+for (const marker of ["G-9SVF6S3JRG", "contact_intent", "estimate_text_prepared", "allow_ad_personalization_signals"]) {
+  if (!javascriptBundle.includes(marker)) fail(`Analytics marker missing from JavaScript bundle: ${marker}`);
+}
+
 if (failures.length) {
   console.error(`Site verification failed with ${failures.length} issue(s):`);
   for (const failure of failures) console.error(`- ${failure}`);

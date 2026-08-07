@@ -5,6 +5,85 @@ import "./styles.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const googleAnalyticsId = "G-9SVF6S3JRG";
+const analyticsHostnames = new Set(["mrbacksplash.info", "www.mrbacksplash.info"]);
+
+window.dataLayer = window.dataLayer || [];
+window.gtag =
+  window.gtag ||
+  function gtag() {
+    window.dataLayer.push(arguments);
+  };
+
+if (analyticsHostnames.has(window.location.hostname)) {
+  const googleTag = document.createElement("script");
+  googleTag.async = true;
+  googleTag.src = `https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`;
+  document.head.append(googleTag);
+
+  window.gtag("js", new Date());
+  window.gtag("config", googleAnalyticsId, {
+    allow_google_signals: false,
+    allow_ad_personalization_signals: false,
+    cookie_flags: "SameSite=Lax;Secure",
+  });
+}
+
+const analyticsPageType = (() => {
+  const parts = window.location.pathname.split("/").filter(Boolean);
+  if (!parts.length) return "home";
+  if (parts[0] === "services") return parts.length > 1 ? "service" : "service_directory";
+  if (parts[0] === "service-areas") return parts.length > 1 ? "service_area" : "service_area_directory";
+  if (parts[0] === "advice") return parts.length > 1 ? "advice_guide" : "advice_directory";
+  if (parts[0] === "work") return parts[1] === "projects" ? "project" : "work_directory";
+  return parts[0].replace(/[^a-z0-9_]+/g, "_");
+})();
+
+function analyticsValue(value) {
+  return String(value || "not_set")
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "")
+    .slice(0, 80);
+}
+
+function trackAnalyticsEvent(eventName, parameters = {}) {
+  window.gtag?.("event", eventName, parameters);
+}
+
+function contactCtaLocation(link) {
+  const locations = [
+    ["#prepared-text-link", "estimate_form"],
+    [".call-fab", "floating_call_button"],
+    [".header-phone", "header"],
+    [".mobile-nav", "mobile_navigation"],
+    [".hero__actions", "home_hero"],
+    [".service-page-hero__actions", "service_hero"],
+    [".service-sms-cta", "service_cta"],
+    [".area-hero__actions", "service_area_hero"],
+    [".area-sms-cta", "service_area_cta"],
+    [".contact-methods", "contact_methods"],
+    [".footer-cta", "footer_cta"],
+    [".site-footer", "footer"],
+  ];
+
+  return locations.find(([selector]) => link.closest(selector))?.[1] || "inline";
+}
+
+document.addEventListener("click", (event) => {
+  const target = event.target instanceof Element ? event.target.closest('a[href^="tel:"], a[href^="sms:"]') : null;
+  if (!target) return;
+
+  const href = target.getAttribute("href") || "";
+  trackAnalyticsEvent("contact_intent", {
+    contact_method: href.startsWith("tel:") ? "phone" : "text",
+    cta_location: contactCtaLocation(target),
+    page_type: analyticsPageType,
+  });
+});
+
 const header = document.querySelector("[data-site-header]");
 const menuToggle = document.querySelector(".menu-toggle");
 const mobileNav = document.querySelector(".mobile-nav");
@@ -227,6 +306,11 @@ if (estimateForm && formStatus && preparedTextLink) {
     formStatus.textContent =
       "Your estimate request is ready. Open your text app to review and send it to David.";
     preparedTextLink.focus();
+
+    trackAnalyticsEvent("estimate_text_prepared", {
+      page_type: analyticsPageType,
+      selected_service: analyticsValue(data.get("service")),
+    });
   });
 }
 
