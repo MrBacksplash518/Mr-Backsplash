@@ -303,8 +303,8 @@ ${projectStoryMarkup(project)}
       <section class="project-observations" aria-labelledby="observations-title">
         <div class="shell">
           <div class="project-section-heading">
-            <h2 id="observations-title">What the photo shows</h2>
-            <p>These notes describe only visible details. They do not assume a location, product specification, schedule, or hidden construction scope.</p>
+            <h2 id="observations-title">Craftsmanship in the details</h2>
+            <p>A closer look at the layout, pattern, transitions, and finish work throughout this installation.</p>
           </div>
           <div class="project-observations__grid">${observationsMarkup(project)}
           </div>
@@ -315,7 +315,7 @@ ${projectStoryMarkup(project)}
         <div class="project-planning__grid shell">
           <div class="project-planning__intro">
             <h2 id="planning-title">Planning something similar?</h2>
-            <p>A photo can start the conversation, but the actual space and selected product determine the work. These details help David review a new project without treating this example as a promise about scope or timing.</p>
+            <p>Send David a few photos of your space and the tile you are considering. He can review the layout, edges, and other project details with you before the work begins.</p>
             <a href="${escapeHtml(project.advice.href)}">Read the ${escapeHtml(project.advice.label).toLowerCase()} &rarr;</a>
           </div>
           <ol class="project-planning__list">${planningMarkup(project)}
