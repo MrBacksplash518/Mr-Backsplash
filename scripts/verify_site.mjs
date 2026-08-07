@@ -7,7 +7,7 @@ const published = process.argv.includes("--published");
 const buildRoot = published ? projectRoot : resolve(projectRoot, "dist/client");
 const siteUrl = "https://mrbacksplash.info";
 const expectedPageCount = 35;
-const expectedIndexableCount = 27;
+const expectedIndexableCount = 29;
 const failures = [];
 
 const publishedRoots = [

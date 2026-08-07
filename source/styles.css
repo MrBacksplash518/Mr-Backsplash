@@ -4208,6 +4208,7 @@ h3 {
   line-height: 1.6;
 }
 
+.project-sequence,
 .project-observations,
 .project-planning,
 .project-related {
@@ -4219,6 +4220,7 @@ h3 {
   background: var(--white);
 }
 
+.project-sequence,
 .project-planning {
   background: var(--ivory);
 }
@@ -4243,6 +4245,70 @@ h3 {
   margin: 1.15rem 0 0;
   color: var(--muted);
   line-height: 1.75;
+}
+
+.project-section-heading > .eyebrow {
+  margin: 0 0 0.9rem;
+  color: var(--gold-dark);
+  line-height: 1.2;
+}
+
+.project-sequence__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr));
+  gap: 1.5rem;
+}
+
+.project-sequence-card {
+  min-width: 0;
+  margin: 0;
+}
+
+.project-sequence-card__button {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 6px;
+  background: var(--off-white);
+  cursor: zoom-in;
+}
+
+.project-sequence-card__button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 300ms ease;
+}
+
+.project-sequence-card__button:hover img,
+.project-sequence-card__button:focus-visible img {
+  transform: scale(1.025);
+}
+
+.project-sequence-card__button span {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 2px;
+  background: rgba(13, 13, 13, 0.84);
+  color: var(--white);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-sequence-card figcaption {
+  margin-top: 0.85rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.62;
 }
 
 .project-observations__grid,
@@ -4475,6 +4541,7 @@ h3 {
     padding-block: 3.25rem 5.75rem;
   }
 
+  .project-sequence,
   .project-observations,
   .project-planning,
   .project-related {

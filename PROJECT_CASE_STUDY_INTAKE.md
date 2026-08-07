@@ -119,4 +119,4 @@ Duration and testimonial are valuable but are not required for indexing if they 
 
 The source of truth for route content and index status is `scripts/project-data.mjs`. The build runs `scripts/generate_project_pages.mjs`, which produces static HTML in `source/work/projects/`.
 
-The six current `publish` routes rely only on strong, visually distinct images and conservative visual observations. The remaining eight routes are `noindex,follow` and intentionally excluded from the sitemap until their records are strengthened.
+The eight current `publish` routes rely only on strong, visually distinct images and conservative visual observations. The remaining six routes are `noindex,follow` and intentionally excluded from the sitemap until their records are strengthened.

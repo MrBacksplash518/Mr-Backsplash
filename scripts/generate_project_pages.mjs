@@ -20,6 +20,10 @@ function imagePath(project, size) {
   return `/assets/portfolio/${project.image.stem}-${size}.webp`;
 }
 
+function galleryImagePath(image, size) {
+  return `/assets/project-galleries/${image.stem}-${size}.webp`;
+}
+
 function projectUrl(project) {
   return `${siteUrl}/work/projects/${project.slug}/`;
 }
@@ -116,6 +120,44 @@ function planningMarkup(project) {
               </li>`,
     )
     .join("");
+}
+
+function projectStoryMarkup(project) {
+  if (!project.gallery?.length) return "";
+
+  const cards = project.gallery
+    .map((image) => {
+      const imageSmall = galleryImagePath(image, "sm");
+      const imageLarge = galleryImagePath(image, "lg");
+      const responsiveAttributes =
+        image.width > 720
+          ? ` srcset="${imageSmall} 720w, ${imageLarge} ${image.width}w" sizes="(max-width: 800px) 100vw, 33vw"`
+          : "";
+
+      return `
+            <figure class="project-sequence-card">
+              <button class="project-sequence-card__button project-gallery-item" type="button" data-image-alt="${escapeHtml(image.alt)}" data-caption="${escapeHtml(image.caption)}" aria-label="Enlarge ${escapeHtml(image.label)} project photo">
+                <img src="${imageSmall}"${responsiveAttributes} alt="${escapeHtml(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" style="object-position: ${escapeHtml(image.position)}" />
+                <span>${escapeHtml(image.label)}</span>
+              </button>
+              <figcaption>${escapeHtml(image.caption)}</figcaption>
+            </figure>`;
+    })
+    .join("");
+
+  return `
+      <section class="project-sequence" aria-labelledby="${escapeHtml(project.slug)}-sequence-title">
+        <div class="shell">
+          <div class="project-section-heading">
+            <p class="eyebrow">Same-job sequence</p>
+            <h2 id="${escapeHtml(project.slug)}-sequence-title">From first look to finished work.</h2>
+            <p>Every view below comes from this project. The sequence is limited to distinct photos that show a different stage or useful angle.</p>
+          </div>
+          <div class="project-sequence__grid">${cards}
+          </div>
+        </div>
+      </section>
+`;
 }
 
 function relatedMarkup(project) {
@@ -257,7 +299,7 @@ ${schema}
           </figure>
         </div>
       </section>
-
+${projectStoryMarkup(project)}
       <section class="project-observations" aria-labelledby="observations-title">
         <div class="shell">
           <div class="project-section-heading">
